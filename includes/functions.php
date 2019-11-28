@@ -110,30 +110,12 @@ function generate_authcode(){
   return rand(1000000,9999999);
 }
 
-/*--------------------------------------------------------------*/
-/* Function to Asign AuthCode to User
-/*--------------------------------------------------------------*/
-
-function set_authcode_to_user($user_id, $code){
-  global $db;
-  $sql = "UPDATE users SET auth_code ='{$code}' WHERE id='{$user_id}'";
-  $db->query($sql);
-
-}
-
-
-function isValidAuthCode($user_id ,$code){
-  global $db;
-  $sql = "SELECT auth_code FROM users WHERE id = '{$user_id}' AND auth_code = '{$code}'";
-  $result = $db->query($sql);
-
-  if($result -> num_rows != 0){
-    return true;
+function is_not_null($param){
+  if(is_null($param)){
+    return FALSE;
   }
   else{
-    return false;
+    return TRUE;
   }
-
 }
-
 ?>

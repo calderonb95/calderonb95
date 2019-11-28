@@ -3,6 +3,7 @@
 
 $user_id = $_POST['nmUserId'];
 $auth_code = $_POST['nmAuthCode'];
+$user_email = $_POST['nmUserEmail'];
 
 
  if (isValidAuthCode($user_id, $auth_code)){

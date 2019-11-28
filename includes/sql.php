@@ -315,6 +315,47 @@ function find_product_by_dates($start_date,$end_date){
   return $db->query($sql);
 }
 
+/*--------------------------------------------------------------*/
+/* Function to Asign AuthCode to User
+/*--------------------------------------------------------------*/
 
+function set_authcode_to_user($user_id, $code){
+  global $db;
+  $sql = "UPDATE users SET auth_code ='{$code}' WHERE id='{$user_id}'";
+  $db->query($sql);
+
+}
+
+
+function isValidAuthCode($user_id ,$code){
+  global $db;
+  $sql = "SELECT auth_code FROM users WHERE id = '{$user_id}' AND auth_code = '{$code}' LIMIT 1";
+  $result = $db->query($sql);
+
+  if($result -> num_rows != 0){
+    return true;
+  }
+  else{
+    return false;
+  }
+
+}
+
+/*--------------------------------------------------------------*/
+/*  Function for Get user email from 'users' table by his id
+/*--------------------------------------------------------------*/
+function get_email_by_user_id($id)
+{
+  global $db;
+  $id = (int)$id;
+    if(tableExists('users')){
+          $sql = $db->query("SELECT email FROM users WHERE id='{$db->escape($id)}' LIMIT 1");
+          $result = $db->fetch_assoc($sql);
+          if(strlen($result['email']) != 0 && $result != FALSE)
+            return $result['email'];
+          else
+            return null;
+     }
+}
 
 ?>

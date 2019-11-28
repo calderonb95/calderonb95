@@ -20,6 +20,6 @@ require_once(LIB_PATH_INC.'session.php');
 require_once(LIB_PATH_INC.'upload.php');
 require_once(LIB_PATH_INC.'database.php');
 require_once(LIB_PATH_INC.'sql.php');
-
+require_once(LIB_PATH_INC.'mail.php');
 
 ?>
