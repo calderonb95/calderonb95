@@ -9,7 +9,8 @@
 | Offcial page: http://oswapp.com/
 | facebook Page: https://www.facebook.com/oswapp
 |
-|
+|--------------------------------------------------------------------------
+| Contributors: Vargas Quintanta, Rino 
 |
 */
   define( 'DB_HOST', 'localhost' );          // Set database host
